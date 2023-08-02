@@ -27,14 +27,14 @@ class _SignInScreenState extends State<SignInScreen> {
         title: const Text(''),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(24.0),
         child: Column(
           children: [
             const SizedBox(height: 20),
             const Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                '서비스명',
+                '이루다',
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.w700,
@@ -69,12 +69,15 @@ class _SignInScreenState extends State<SignInScreen> {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 30),
                 ],
               ),
             ),
             ElevatedButton(
               style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                  const Color(0xff5C82FC),
+                ),
                 minimumSize: MaterialStateProperty.all(
                   const Size(double.infinity, 56),
                 ),
@@ -95,18 +98,41 @@ class _SignInScreenState extends State<SignInScreen> {
                 '로그인하기',
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 18,
-                  color: Colors.black,
+                  fontSize: 20,
+                  color: Colors.white,
                 ),
               ),
             ),
-            const SizedBox(height: 20),
-            const Text('아직 회원이 아니신가요?'),
+            const SizedBox(height: 50),
+            const Text(
+              '아직 회원이 아니신가요?',
+              style: TextStyle(
+                color: Color(0xff707882),
+                fontWeight: FontWeight.w600,
+                fontSize: 18,
+              ),
+            ),
+            const SizedBox(height: 10),
             ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                  const Color(0xffE9EBEE),
+                ),
+              ),
               onPressed: () {
                 context.push('/signup');
               },
-              child: const Text('회원가입 하기'),
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  '회원가입 하기',
+                  style: TextStyle(
+                    color: Color(0xff434E58),
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
             ),
           ],
         ),
