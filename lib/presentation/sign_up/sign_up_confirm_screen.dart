@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SignUpConfirmScreen extends StatelessWidget {
   const SignUpConfirmScreen({Key? key}) : super(key: key);
@@ -37,7 +38,9 @@ class SignUpConfirmScreen extends StatelessWidget {
             ),
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              context.go('/on-boarding/step1');
+            },
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(
                 const Color(0xff5C82FC),
