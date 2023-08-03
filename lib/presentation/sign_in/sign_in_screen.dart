@@ -31,15 +31,9 @@ class _SignInScreenState extends State<SignInScreen> {
         child: Column(
           children: [
             const SizedBox(height: 20),
-            const Align(
+            Align(
               alignment: Alignment.centerLeft,
-              child: Text(
-                '이루다',
-                style: TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
+              child: Image.asset('assets/logo.png'),
             ),
             const SizedBox(height: 60),
             Form(
@@ -116,7 +110,7 @@ class _SignInScreenState extends State<SignInScreen> {
             ElevatedButton(
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(
-                  const Color(0xffE9EBEE),
+                  const Color(0xffFFDC62),
                 ),
               ),
               onPressed: () {
@@ -127,7 +121,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: Text(
                   '회원가입 하기',
                   style: TextStyle(
-                    color: Color(0xff434E58),
+                    color: Color(0xff1b1b1b),
                     fontWeight: FontWeight.w600,
                     fontSize: 18,
                   ),
