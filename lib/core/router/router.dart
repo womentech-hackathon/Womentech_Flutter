@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:women_tech_flutter/presentation/components/bottom_tab_bar/bottom_tab_bar.dart';
+import 'package:women_tech_flutter/presentation/on_boarding/on_boarding_confirm_screen.dart';
+import 'package:women_tech_flutter/presentation/on_boarding/on_boarding_step_one_screen.dart';
+import 'package:women_tech_flutter/presentation/on_boarding/on_boarding_step_three_screen.dart';
+import 'package:women_tech_flutter/presentation/on_boarding/on_boarding_step_two_screen.dart';
 import 'package:women_tech_flutter/presentation/sign_in/sign_in_screen.dart';
 import 'package:women_tech_flutter/presentation/sign_up/sign_up_confirm_screen.dart';
 import 'package:women_tech_flutter/presentation/sign_up/sign_up_screen.dart';
@@ -32,6 +36,30 @@ final GoRouter router = GoRouter(
           },
         ),
       ],
+    ),
+    GoRoute(
+      path: '/on-boarding/step1',
+      builder: (BuildContext context, GoRouterState state) {
+        return const OnBoardingStepOneScreen();
+      },
+    ),
+    GoRoute(
+      path: '/on-boarding/step2',
+      builder: (BuildContext context, GoRouterState state) {
+        return const OnBoardingStepTwoScreen();
+      },
+    ),
+    GoRoute(
+      path: '/on-boarding/step3',
+      builder: (BuildContext context, GoRouterState state) {
+        return const OnBoardingStepThreeScreen();
+      },
+    ),
+    GoRoute(
+      path: '/on-boarding/confirm',
+      builder: (BuildContext context, GoRouterState state) {
+        return const OnBoardingConfirmScreen();
+      },
     ),
   ],
 );
