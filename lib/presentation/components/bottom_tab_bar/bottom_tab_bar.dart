@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:women_tech_flutter/presentation/main/main_screen.dart';
-import 'package:women_tech_flutter/presentation/sign_in/sign_in_screen.dart';
+import 'package:women_tech_flutter/presentation/education/education_screen.dart';
+import 'package:women_tech_flutter/presentation/home/home_screen.dart';
+import 'package:women_tech_flutter/presentation/task/task_main_screen.dart';
+import 'package:women_tech_flutter/presentation/user/user_main_screen.dart';
 
 class BottomTabBar extends StatefulWidget {
   const BottomTabBar({Key? key}) : super(key: key);
@@ -13,10 +15,10 @@ class _BottomTabBarState extends State<BottomTabBar> {
   int _currentIndex = 0;
 
   final _pages = const [
-    MainScreen(),
-    SignInScreen(),
-    MainScreen(),
-    MainScreen(),
+    HomeScreen(),
+    TaskMainScreen(),
+    EducationScreen(),
+    UserMainScreen(),
   ];
 
   @override
