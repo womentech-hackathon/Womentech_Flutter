@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:women_tech_flutter/presentation/components/select_index_container/select_index_container.dart';
 
 class BottomModal extends StatefulWidget {
@@ -69,6 +70,7 @@ class _BottomModalState extends State<BottomModal> {
                             unSelectedTextColor: Color(0xff5C82FC),
                             horizontalPadding: 11.0,
                             verticalPadding: 7.0,
+                            fontSize: 18,
                           ),
                           SelectIndexContainer(
                             text: '화',
@@ -78,6 +80,7 @@ class _BottomModalState extends State<BottomModal> {
                             unSelectedTextColor: Color(0xff5C82FC),
                             horizontalPadding: 11.0,
                             verticalPadding: 7.0,
+                            fontSize: 18,
                           ),
                           SelectIndexContainer(
                             text: '수',
@@ -87,6 +90,7 @@ class _BottomModalState extends State<BottomModal> {
                             unSelectedTextColor: Color(0xff5C82FC),
                             horizontalPadding: 11.0,
                             verticalPadding: 7.0,
+                            fontSize: 18,
                           ),
                           SelectIndexContainer(
                             text: '목',
@@ -96,6 +100,7 @@ class _BottomModalState extends State<BottomModal> {
                             unSelectedTextColor: Color(0xff5C82FC),
                             horizontalPadding: 11.0,
                             verticalPadding: 7.0,
+                            fontSize: 18,
                           ),
                           SelectIndexContainer(
                             text: '금',
@@ -105,6 +110,7 @@ class _BottomModalState extends State<BottomModal> {
                             unSelectedTextColor: Color(0xff5C82FC),
                             horizontalPadding: 11.0,
                             verticalPadding: 7.0,
+                            fontSize: 18,
                           ),
                           SelectIndexContainer(
                             text: '토',
@@ -114,6 +120,7 @@ class _BottomModalState extends State<BottomModal> {
                             unSelectedTextColor: Color(0xff5C82FC),
                             horizontalPadding: 11.0,
                             verticalPadding: 7.0,
+                            fontSize: 18,
                           ),
                           SelectIndexContainer(
                             text: '일',
@@ -123,6 +130,7 @@ class _BottomModalState extends State<BottomModal> {
                             unSelectedTextColor: Color(0xff5C82FC),
                             horizontalPadding: 11.0,
                             verticalPadding: 7.0,
+                            fontSize: 18,
                           ),
                         ],
                       ),
@@ -130,7 +138,7 @@ class _BottomModalState extends State<BottomModal> {
                     const SizedBox(height: 40),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.pop(context, selectedDay);
+                        context.push('/on-boarding/confirm');
                       },
                       style: ButtonStyle(
                         shape:
