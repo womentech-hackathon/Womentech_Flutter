@@ -42,6 +42,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 children: [
                   renderTextFormField(
                     controller: _idController,
+                    isVisible: true,
                     label: '아이디',
                     onSaved: (val) {},
                     validator: (val) {
@@ -55,6 +56,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   const SizedBox(height: 20),
                   renderTextFormField(
                     controller: _passwordController,
+                    isVisible: false,
                     label: '비밀번호',
                     onSaved: (val) {},
                     validator: (val) {
@@ -83,9 +85,7 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  const SnackBar(
-                    content: Text('로그인 되었습니다.'),
-                  );
+                  context.push('/home');
                 }
               },
               child: const Text(
@@ -140,6 +140,7 @@ renderTextFormField({
   required String label,
   required FormFieldSetter onSaved,
   required FormFieldValidator validator,
+  required bool isVisible,
 }) {
   return Column(
     children: [
@@ -149,6 +150,7 @@ renderTextFormField({
         ),
         onSaved: onSaved,
         validator: validator,
+        obscureText: isVisible ? false : true,
       ),
     ],
   );
