@@ -43,8 +43,8 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(
+          Padding(
+            padding: const EdgeInsets.symmetric(
               horizontal: 22.0,
               vertical: 17.0,
             ),
@@ -52,18 +52,35 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(
-                      '바리스타',
-                      style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        decorationThickness: 5,
-                        decorationColor: Color(0xffFFDC62),
-                        fontSize: 26,
-                        fontWeight: FontWeight.w700,
-                      ),
+                    Stack(
+                      children: [
+                        const SizedBox(
+                          width: 90,
+                          height: 26,
+                        ),
+                        Positioned(
+                          bottom: 5,
+                          child: Container(
+                            color: const Color(0xffFFDC62),
+                            width: 100,
+                            height: 8,
+                          ),
+                        ),
+                        const Positioned(
+                          child: Text(
+                            '바리스타',
+                            style: TextStyle(
+                              decorationThickness: 5,
+                              fontSize: 26,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        )
+                      ],
                     ),
-                    Text(
+                    const Text(
                       '를 꿈꾸는',
                       style: TextStyle(
                         fontSize: 26,
@@ -72,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Text(
+                const Text(
                   '권혁선님의 오늘의 실천사항(2)',
                   style: TextStyle(
                     fontSize: 26,
