@@ -3,7 +3,7 @@ import 'package:women_tech_flutter/data/dto/education_data_result_dto.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-class EducationIntoApi {
+class EducationInfoApi {
   final _baseUrl = dotenv.env['BASE_URL'];
   final _key = dotenv.env['KEY'];
 
