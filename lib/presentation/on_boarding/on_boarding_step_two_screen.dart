@@ -17,6 +17,7 @@ class _OnBoardingStepTwoScreenState extends State<OnBoardingStepTwoScreen> {
   @override
   void dispose() {
     jobController.dispose();
+    tooltipController.dispose();
     super.dispose();
   }
 
@@ -96,7 +97,7 @@ class _OnBoardingStepTwoScreenState extends State<OnBoardingStepTwoScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 50),
+                  const SizedBox(height: 50),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [

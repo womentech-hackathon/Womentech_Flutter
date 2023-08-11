@@ -186,7 +186,7 @@ class _OnBoardingStepOneScreenState extends State<OnBoardingStepOneScreen> {
                   const SizedBox(height: 40),
                   GestureDetector(
                     onTap: () {
-                      context.push('/');
+                      context.go('/home');
                     },
                     child: Center(
                       child: Container(

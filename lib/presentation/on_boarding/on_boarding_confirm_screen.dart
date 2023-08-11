@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class OnBoardingConfirmScreen extends StatefulWidget {
   const OnBoardingConfirmScreen({Key? key}) : super(key: key);
@@ -33,7 +34,9 @@ class _OnBoardingConfirmScreenState extends State<OnBoardingConfirmScreen> {
             ),
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              context.go('/home');
+            },
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.resolveWith<Color>(
                 (states) {
