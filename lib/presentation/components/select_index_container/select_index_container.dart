@@ -8,6 +8,7 @@ class SelectIndexContainer extends StatefulWidget {
   final Color unSelectedTextColor;
   final double verticalPadding;
   final double horizontalPadding;
+  final double fontSize;
 
   const SelectIndexContainer({
     Key? key,
@@ -18,6 +19,7 @@ class SelectIndexContainer extends StatefulWidget {
     required this.unSelectedTextColor,
     required this.verticalPadding,
     required this.horizontalPadding,
+    required this.fontSize,
   }) : super(key: key);
 
   @override
@@ -69,7 +71,7 @@ class _SelectIndexContainerState extends State<SelectIndexContainer> {
           child: Text(
             widget.text,
             style: TextStyle(
-              fontSize: 18,
+              fontSize: widget.fontSize,
               fontWeight: FontWeight.w600,
               color: selectedIndex == 0
                   ? Colors.white
