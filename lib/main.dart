@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:women_tech_flutter/core/router/router.dart';
+import 'package:women_tech_flutter/di/di_setup.dart';
 
 void main() {
+  configureDependencies();
   runApp(const MyApp());
 }
 

@@ -1,11 +1,13 @@
+import 'package:injectable/injectable.dart';
 import 'package:women_tech_flutter/core/result.dart';
 import 'package:women_tech_flutter/domain/education/education_info.dart';
 import 'package:women_tech_flutter/domain/repository/education_repository.dart';
 
-class GetEducationDataUseCase {
+@singleton
+class GetEducationInfoListUseCase {
   final EducationRepository _educationRepository;
 
-  GetEducationDataUseCase(this._educationRepository);
+  GetEducationInfoListUseCase(this._educationRepository);
 
   Future<Result<List<EducationInfo>>> execute(
       int startIndex, int endIndex) async {

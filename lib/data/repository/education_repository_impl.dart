@@ -1,8 +1,10 @@
+import 'package:injectable/injectable.dart';
 import 'package:women_tech_flutter/data/data_source/api/education_info_api.dart';
 import 'package:women_tech_flutter/data/mapper/education_info_mapper.dart';
 import 'package:women_tech_flutter/domain/education/education_data.dart';
 import 'package:women_tech_flutter/domain/repository/education_repository.dart';
 
+@Singleton(as: EducationRepository)
 class EducationRepositoryImpl implements EducationRepository {
   final EducationInfoApi _api;
 

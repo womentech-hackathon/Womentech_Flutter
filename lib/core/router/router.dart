@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:women_tech_flutter/data/data_source/api/education_info_api.dart';
-import 'package:women_tech_flutter/data/repository/education_repository_impl.dart';
-import 'package:women_tech_flutter/domain/use_case/get_education_data_use_case.dart';
+import 'package:women_tech_flutter/di/di_setup.dart';
 import 'package:women_tech_flutter/presentation/components/bottom_tab_bar/bottom_tab_bar.dart';
 import 'package:women_tech_flutter/presentation/education/education_screen.dart';
 import 'package:women_tech_flutter/presentation/education/education_view_model.dart';
@@ -67,13 +65,7 @@ final GoRouter router = GoRouter(
       path: '/education',
       builder: (BuildContext context, GoRouterState state) {
         return ChangeNotifierProvider(
-          create: (_) => EducationViewModel(
-            GetEducationDataUseCase(
-              EducationRepositoryImpl(
-                EducationInfoApi(),
-              ),
-            ),
-          ),
+          create: (_) => getIt<EducationViewModel>(),
           child: const EducationScreen(),
         );
       },
