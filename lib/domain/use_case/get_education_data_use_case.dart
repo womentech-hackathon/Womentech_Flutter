@@ -1,9 +1,7 @@
-import 'package:injectable/injectable.dart';
 import 'package:women_tech_flutter/core/result.dart';
 import 'package:women_tech_flutter/domain/education/education_info.dart';
 import 'package:women_tech_flutter/domain/repository/education_repository.dart';
 
-@singleton
 class GetEducationInfoListUseCase {
   final EducationRepository _educationRepository;
 
