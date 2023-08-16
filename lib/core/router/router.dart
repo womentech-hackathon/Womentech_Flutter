@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
-import 'package:women_tech_flutter/di/di_setup.dart';
 import 'package:women_tech_flutter/presentation/components/bottom_tab_bar/bottom_tab_bar.dart';
 import 'package:women_tech_flutter/presentation/education/education_screen.dart';
-import 'package:women_tech_flutter/presentation/education/education_view_model.dart';
 import 'package:women_tech_flutter/presentation/on_boarding/on_boarding_confirm_screen.dart';
 import 'package:women_tech_flutter/presentation/on_boarding/on_boarding_step_one_screen.dart';
 import 'package:women_tech_flutter/presentation/on_boarding/on_boarding_step_three_screen.dart';
@@ -64,10 +61,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/education',
       builder: (BuildContext context, GoRouterState state) {
-        return ChangeNotifierProvider(
-          create: (_) => getIt<EducationViewModel>(),
-          child: const EducationScreen(),
-        );
+        return EducationScreen();
       },
     ),
     GoRoute(
