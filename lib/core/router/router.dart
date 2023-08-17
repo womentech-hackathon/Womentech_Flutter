@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:women_tech_flutter/presentation/components/bottom_tab_bar/bottom_tab_bar.dart';
-import 'package:women_tech_flutter/presentation/education/education_screen.dart';
 import 'package:women_tech_flutter/presentation/on_boarding/on_boarding_confirm_screen.dart';
 import 'package:women_tech_flutter/presentation/on_boarding/on_boarding_step_one_screen.dart';
 import 'package:women_tech_flutter/presentation/on_boarding/on_boarding_step_three_screen.dart';
@@ -56,12 +55,6 @@ final GoRouter router = GoRouter(
       path: '/home',
       builder: (BuildContext context, GoRouterState state) {
         return const BottomTabBar();
-      },
-    ),
-    GoRoute(
-      path: '/education',
-      builder: (BuildContext context, GoRouterState state) {
-        return EducationScreen();
       },
     ),
     GoRoute(
