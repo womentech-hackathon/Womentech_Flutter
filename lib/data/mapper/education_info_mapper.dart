@@ -1,3 +1,4 @@
+
 import 'package:women_tech_flutter/data/dto/education_data_result_dto.dart';
 import 'package:women_tech_flutter/domain/education/education_data.dart';
 import 'package:women_tech_flutter/domain/education/education_info.dart';
@@ -5,20 +6,22 @@ import 'package:women_tech_flutter/domain/education/education_info.dart';
 extension ToEducationData on EducationDataResultDto {
   EducationData toEducationData() {
     return EducationData(
-      totalCount: tbViewProgram?.listTotalCount ?? 0,
+      totalCount: tbViewProgram.listTotalCount,
       educationInfoList: List.generate(
-        tbViewProgram?.row?.length ?? 0,
-        (index) => EducationInfo(
-          subject: tbViewProgram!.row![index].subject ?? '',
-          educationStartDate: tbViewProgram!.row![index].startdate ?? '',
-          educationEndDate: tbViewProgram!.row![index].enddate ?? '',
-          applicationStatDate:
-              tbViewProgram!.row![index].applicationstartdate ?? '',
-          applicationEndDate:
-              tbViewProgram!.row![index].applicationenddate ?? '',
-          applyState: tbViewProgram!.row![index].applystate ?? '',
-          cost: tbViewProgram!.row![index].registcost ?? '',
-        ),
+        tbViewProgram.row.length,
+            (index) {
+          return EducationInfo(
+            index: tbViewProgram.row[index].IDX,
+            subject: tbViewProgram.row[index].SUBJECT,
+            startDate: tbViewProgram.row[index].STARTDATE,
+            endDate: tbViewProgram.row[index].ENDDATE,
+            applyStartDate: tbViewProgram.row[index].APPLICATIONSTARTDATE,
+            applyEndDate: tbViewProgram.row[index].APPLICATIONENDDATE,
+            registerPeople: tbViewProgram.row[index].REGISTPEOPLE,
+            registerCost: tbViewProgram.row[index].REGISTCOST,
+            applyState: tbViewProgram.row[index].APPLYSTATE,
+          );
+        },
       ),
     );
   }
