@@ -1,29 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:women_tech_flutter/core/result.dart';
-import 'package:women_tech_flutter/domain/use_case/get_education_data_use_case.dart';
+import 'package:women_tech_flutter/domain/use_case/latest_education_list_use_case.dart';
 import 'package:women_tech_flutter/presentation/education/education_state.dart';
 
 class EducationViewModel with ChangeNotifier {
-  final GetEducationInfoListUseCase _getEducationDataUseCase;
+  final LatestEducationListUseCase _latestEducationListUseCase;
 
-  EducationViewModel(this._getEducationDataUseCase) {
-    fetchEducationData(1, 10);
-  }
+  EducationViewModel(this._latestEducationListUseCase);
 
   EducationState _state = const EducationState();
 
   EducationState get state => _state;
 
-  void fetchEducationData(int startIndex, int endIndex) async {
+  void getEducationInfoList(int startIndex, int endIndex) async {
     _state = state.copyWith(isLoading: true);
     notifyListeners();
-    final result = await _getEducationDataUseCase.execute(startIndex, endIndex);
+    final result =
+        await _latestEducationListUseCase.execute(1, 10);
 
     switch (result) {
       case Success(:final data):
         _state = state.copyWith(
-          educationInfoList: data,
           isLoading: false,
+          latestEducationInfoList: data,
         );
       case Error(:final e):
         _state = state.copyWith(isLoading: false);

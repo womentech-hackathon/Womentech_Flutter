@@ -9,7 +9,7 @@ part 'education_data.g.dart';
 @freezed
 class EducationData with _$EducationData {
   const factory EducationData({
-    required num totalCount,
+    required int totalCount,
     required List<EducationInfo> educationInfoList,
   }) = _EducationData;
 

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:women_tech_flutter/data/repository/senior_education_repository_impl.dart';
+import 'package:women_tech_flutter/domain/use_case/latest_education_list_use_case.dart';
 import 'package:women_tech_flutter/presentation/education/education_screen.dart';
+import 'package:women_tech_flutter/presentation/education/education_view_model.dart';
 import 'package:women_tech_flutter/presentation/home/home_screen.dart';
 import 'package:women_tech_flutter/presentation/task/task_main_screen.dart';
 import 'package:women_tech_flutter/presentation/user/user_main_screen.dart';
@@ -14,11 +18,18 @@ class BottomTabBar extends StatefulWidget {
 class _BottomTabBarState extends State<BottomTabBar> {
   int _currentIndex = 0;
 
-  final _pages = const [
-    HomeScreen(),
-    TaskMainScreen(),
-    EducationScreen(),
-    UserMainScreen(),
+  final _pages = [
+    const HomeScreen(),
+    const TaskMainScreen(),
+    ChangeNotifierProvider(
+      create: (_) => EducationViewModel(
+        LatestEducationListUseCase(
+          SeniorEducationRepositoryImpl(),
+        ),
+      ),
+      child: const EducationScreen(),
+    ),
+    const UserMainScreen(),
   ];
 
   @override

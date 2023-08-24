@@ -1,20 +1,25 @@
 import 'package:women_tech_flutter/core/result.dart';
+import 'package:women_tech_flutter/core/utils/sorted_by.dart';
 import 'package:women_tech_flutter/domain/education/education_info.dart';
 import 'package:women_tech_flutter/domain/repository/education_repository.dart';
 
-class GetEducationInfoListUseCase {
+class LatestEducationListUseCase {
   final EducationRepository _educationRepository;
 
-  GetEducationInfoListUseCase(this._educationRepository);
+  LatestEducationListUseCase(this._educationRepository);
 
   Future<Result<List<EducationInfo>>> execute(
       int startIndex, int endIndex) async {
     try {
       final educationData =
           await _educationRepository.getEducationData(startIndex, endIndex);
-      return Result.success(educationData.educationInfoList);
-    } catch (err) {
-      return const Result.error('use case 에러');
+      final latestEducationInfoList = educationData.educationInfoList
+          .sortedBy((a, b) => -a.index.compareTo(b.index));
+      return Result.success(latestEducationInfoList);
+    } catch (e) {
+      return Result.error(
+        Exception('use case 에러'),
+      );
     }
   }
 }

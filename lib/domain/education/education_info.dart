@@ -8,13 +8,15 @@ part 'education_info.g.dart';
 @freezed
 class EducationInfo with _$EducationInfo {
   const factory EducationInfo({
+    required String index,
     required String subject,
-    required String educationStartDate,
-    required String educationEndDate,
-    required String applicationStatDate,
-    required String applicationEndDate,
+    required String startDate,
+    required String endDate,
+    required String applyStartDate,
+    required String applyEndDate,
+    required String registerPeople,
+    required String registerCost,
     required String applyState,
-    required String cost,
   }) = _EducationInfo;
 
   factory EducationInfo.fromJson(Map<String, Object?> json) =>

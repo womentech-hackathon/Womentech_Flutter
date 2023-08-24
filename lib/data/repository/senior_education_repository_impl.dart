@@ -1,12 +1,10 @@
-import 'package:women_tech_flutter/data/data_source/api/education_info_api.dart';
+import 'package:women_tech_flutter/data/data_source/api/education_api.dart';
 import 'package:women_tech_flutter/data/mapper/education_info_mapper.dart';
 import 'package:women_tech_flutter/domain/education/education_data.dart';
 import 'package:women_tech_flutter/domain/repository/education_repository.dart';
 
-class EducationRepositoryImpl implements EducationRepository {
-  final EducationInfoApi _api;
-
-  EducationRepositoryImpl(this._api);
+class SeniorEducationRepositoryImpl implements EducationRepository {
+  final _api = EducationApi();
 
   @override
   Future<EducationData> getEducationData(int startIndex, int endIndex) async {
