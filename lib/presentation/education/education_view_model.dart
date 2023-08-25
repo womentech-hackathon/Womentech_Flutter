@@ -6,7 +6,9 @@ import 'package:women_tech_flutter/presentation/education/education_state.dart';
 class EducationViewModel with ChangeNotifier {
   final LatestEducationListUseCase _latestEducationListUseCase;
 
-  EducationViewModel(this._latestEducationListUseCase);
+  EducationViewModel(this._latestEducationListUseCase) {
+    getEducationInfoList(1, 10);
+  }
 
   EducationState _state = const EducationState();
 
@@ -16,7 +18,7 @@ class EducationViewModel with ChangeNotifier {
     _state = state.copyWith(isLoading: true);
     notifyListeners();
     final result =
-        await _latestEducationListUseCase.execute(1, 10);
+        await _latestEducationListUseCase.execute(startIndex, endIndex);
 
     switch (result) {
       case Success(:final data):
