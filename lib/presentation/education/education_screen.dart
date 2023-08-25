@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
+import 'package:women_tech_flutter/domain/education/education_info.dart';
 import 'package:women_tech_flutter/presentation/components/education_container/education_container.dart';
 import 'package:women_tech_flutter/presentation/components/select_index_container/select_index_container.dart';
 import 'package:women_tech_flutter/presentation/education/education_view_model.dart';
@@ -8,22 +10,47 @@ class EducationScreen extends StatefulWidget {
   const EducationScreen({Key? key}) : super(key: key);
 
   @override
-  _EducationScreenState createState() => _EducationScreenState();
+  State<EducationScreen> createState() => _EducationScreenState();
 }
 
 class _EducationScreenState extends State<EducationScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  static const _pageSize = 10;
+
+  final PagingController<int, EducationInfo> _pagingController =
+      PagingController(firstPageKey: 1);
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
+    // _pagingController.addPageRequestListener(
+    //   (pageKey) {
+    //     _fetchPage(pageKey);
+    //   },
+    // );
   }
+
+  // Future<void> _fetchPage(int pageKey) async {
+  //   try {
+  //     final newItems = await RemoteApi.getBeerList(pageKey, _pageSize);
+  //     final isLastPage = newItems.length < _pageSize;
+  //     if (isLastPage) {
+  //       _pagingController.appendLastPage(newItems);
+  //     } else {
+  //       final nextPageKey = pageKey + newItems.length;
+  //       _pagingController.appendPage(newItems, nextPageKey);
+  //     }
+  //   } catch (error) {
+  //     _pagingController.error = error;
+  //   }
+  // }
 
   @override
   void dispose() {
     _tabController.dispose();
+    _pagingController.dispose();
     super.dispose();
   }
 
@@ -138,33 +165,25 @@ class _EducationScreenState extends State<EducationScreen>
                         ),
                       ),
                       Expanded(
-                        child: ListView(
-                          children: const [
-                            Column(
+                        child: ListView.builder(
+                          itemCount: state.latestEducationInfoList.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            final education =
+                                state.latestEducationInfoList[index];
+                            return Column(
                               children: [
                                 EducationContainer(
-                                  title: '일반경비원 신임교육 2기',
-                                  isRegistered: true,
-                                  unSelectedTextColor: Colors.white,
-                                  unSelectedColor: Color(0xff517BFC),
+                                  title: education.subject,
+                                  unSelectedColor: Colors.white,
+                                  unSelectedTextColor: const Color(0xff517BFC),
+                                  isRegistered: education.applyState == '마감'
+                                      ? false
+                                      : true,
                                 ),
-                                SizedBox(height: 20),
-                                EducationContainer(
-                                  title: '온라인 입사지원 교육 2기',
-                                  isRegistered: true,
-                                  unSelectedTextColor: Color(0xff517BFC),
-                                  unSelectedColor: Color(0xffF7F8F9),
-                                ),
-                                SizedBox(height: 20),
-                                EducationContainer(
-                                  title: '바리스타2급 실기&시험 과정(오전반)',
-                                  isRegistered: false,
-                                  unSelectedTextColor: Colors.white,
-                                  unSelectedColor: Color(0xff517BFC),
-                                ),
+                                const SizedBox(height: 20),
                               ],
-                            )
-                          ],
+                            );
+                          },
                         ),
                       ),
                     ],
