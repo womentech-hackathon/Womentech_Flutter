@@ -1,7 +1,7 @@
-import 'package:women_tech_flutter/data/data_source/api/education_api.dart';
-import 'package:women_tech_flutter/data/mapper/education_info_mapper.dart';
-import 'package:women_tech_flutter/domain/education/education_data.dart';
-import 'package:women_tech_flutter/domain/repository/education_repository.dart';
+import 'package:women_tech_flutter/education/data/data_source/api/education_api.dart';
+import 'package:women_tech_flutter/education/data/mapper/education_info_mapper.dart';
+import 'package:women_tech_flutter/education/domain/model/education_data.dart';
+import 'package:women_tech_flutter/education/domain/repository/education_repository.dart';
 
 class SeniorEducationRepositoryImpl implements EducationRepository {
   final _api = EducationApi();

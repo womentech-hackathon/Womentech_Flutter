@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:women_tech_flutter/domain/education/education_info.dart';
+import 'package:women_tech_flutter/education/domain/model/education_info.dart';
 
 part 'education_state.freezed.dart';
 

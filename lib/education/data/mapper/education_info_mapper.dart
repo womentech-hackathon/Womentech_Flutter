@@ -1,7 +1,6 @@
-
-import 'package:women_tech_flutter/data/dto/education_data_result_dto.dart';
-import 'package:women_tech_flutter/domain/education/education_data.dart';
-import 'package:women_tech_flutter/domain/education/education_info.dart';
+import 'package:women_tech_flutter/education/data/dto/education_data_result_dto.dart';
+import 'package:women_tech_flutter/education/domain/model/education_data.dart';
+import 'package:women_tech_flutter/education/domain/model/education_info.dart';
 
 extension ToEducationData on EducationDataResultDto {
   EducationData toEducationData() {
@@ -9,7 +8,7 @@ extension ToEducationData on EducationDataResultDto {
       totalCount: tbViewProgram.listTotalCount,
       educationInfoList: List.generate(
         tbViewProgram.row.length,
-            (index) {
+        (index) {
           return EducationInfo(
             index: tbViewProgram.row[index].IDX,
             subject: tbViewProgram.row[index].SUBJECT,

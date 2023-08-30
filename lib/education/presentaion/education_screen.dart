@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
-import 'package:women_tech_flutter/domain/education/education_info.dart';
+import 'package:women_tech_flutter/education/domain/model/education_info.dart';
 import 'package:women_tech_flutter/presentation/components/education_container/education_container.dart';
 import 'package:women_tech_flutter/presentation/components/select_index_container/select_index_container.dart';
-import 'package:women_tech_flutter/presentation/education/education_view_model.dart';
+import 'package:women_tech_flutter/education/presentaion/education_view_model.dart';
 
 class EducationScreen extends StatefulWidget {
   const EducationScreen({Key? key}) : super(key: key);

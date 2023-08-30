@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:women_tech_flutter/core/result.dart';
-import 'package:women_tech_flutter/domain/use_case/latest_education_list_use_case.dart';
-import 'package:women_tech_flutter/presentation/education/education_state.dart';
+import 'package:women_tech_flutter/education/domain/use_case/latest_education_list_use_case.dart';
+import 'package:women_tech_flutter/education/presentaion/education_state.dart';
 
 class EducationViewModel with ChangeNotifier {
   final LatestEducationListUseCase _latestEducationListUseCase;

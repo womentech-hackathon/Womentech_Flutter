@@ -1,7 +1,7 @@
 import 'package:women_tech_flutter/core/result.dart';
 import 'package:women_tech_flutter/core/utils/sorted_by.dart';
-import 'package:women_tech_flutter/domain/education/education_info.dart';
-import 'package:women_tech_flutter/domain/repository/education_repository.dart';
+import 'package:women_tech_flutter/education/domain/model/education_info.dart';
+import 'package:women_tech_flutter/education/domain/repository/education_repository.dart';
 
 class LatestEducationListUseCase {
   final EducationRepository _educationRepository;
